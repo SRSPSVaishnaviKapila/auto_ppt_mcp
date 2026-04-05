@@ -1,0 +1,24 @@
+# ─────────────────────────────────────────────────────────
+#  Auto-PPT Agent — Python dependencies
+# ─────────────────────────────────────────────────────────
+
+# UI
+streamlit>=1.35.0
+
+# PowerPoint generation
+python-pptx>=0.6.21
+
+# LLM (HuggingFace)
+huggingface_hub>=0.23.0
+
+# HTTP requests (for Pexels image search + web search fallback)
+requests>=2.31.0
+
+# Environment variables
+python-dotenv>=1.0.0
+
+# MCP SDK (for building and connecting to MCP servers)
+mcp>=1.0.0
+
+# JSON parsing helper
+jsonschema>=4.21.0
