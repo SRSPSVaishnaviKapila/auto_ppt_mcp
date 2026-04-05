@@ -75,7 +75,7 @@ Streamlit shows download button ✅
 
 ---
 
-## 🔑 MCP Servers Explained
+##  MCP Servers TOOLS
 
 | Server | Tools It Provides | What It Does |
 |--------|------------------|--------------|
@@ -83,6 +83,12 @@ Streamlit shows download button ✅
 | `search_server.py` | `search_web` | Fetches real content using Pexels API |
 
 ---
+
+
+## SCREEN RECORDING
+
+https://github.com/user-attachments/assets/bd959186-d28b-4bee-841b-7c83c7628089
+https://github.com/user-attachments/assets/4f81696c-a912-4c47-af95-17c0dd76c925
 
 ## 💡 Key Concepts
 
