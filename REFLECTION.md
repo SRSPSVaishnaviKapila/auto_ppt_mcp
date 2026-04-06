@@ -1,4 +1,4 @@
-# 📝 Reflection Document — Auto-PPT Agent
+#  Reflection Document — Auto-PPT Agent
 
 ## Assignment Questions
 
@@ -48,6 +48,31 @@ unhandled `KeyError` when trying to read `search_data["content"]`.
 
 ---
 
+### **a) Content Generation Issues**
+
+The agent initially produced repetitive and generic bullet points. The content lacked depth and variation because it relied on predefined templates rather than dynamic generation. When external APIs such as Hugging Face were introduced, additional issues arose due to invalid responses and token-related errors, which disrupted the content generation process.
+
+---
+
+### **b) Image Generation Problems**
+
+The agent faced difficulties in incorporating images into the presentation slides. In many cases, image URLs were either invalid or unavailable. Additionally, the PowerPoint generation logic did not correctly handle image insertion, resulting in slides without proper visual elements.
+
+---
+
+### **c) MCP Server Connection Errors**
+
+There were multiple failures in establishing a connection between the agent and the MCP server. Common errors included incorrect file paths (such as the system being unable to locate `ppt_server.py`) and server startup failures. These issues were primarily caused by improper relative path handling and differences in execution context when running the application through Streamlit.
+
+---
+
+### **d) Token Validation Issues**
+
+While integrating external services, the agent encountered problems related to API key configuration. Missing or invalid tokens, along with incorrect environment variable setup, caused failures in accessing external APIs. This led to interruptions in generating slide content.
+
+---
+
+
 ### Q2: How did MCP prevent you from writing hardcoded scripts?
 
 **Separation of concerns via protocol:**
@@ -84,6 +109,45 @@ Because MCP tools are asynchronous calls with latency, the agent *must* plan
 the full slide structure upfront. Doing 10 back-and-forth LLM calls to decide
 "what goes on slide 3?" mid-loop would be too slow and incoherent. The two-step
 plan-then-execute structure emerges naturally from the MCP design.
+
+Here is a clean, formal version suitable for your report:
+
+---
+
+### **a) Separation of Concerns**
+
+MCP enforces a clear separation between the agent and the execution layer. The agent is responsible for decision-making, while the MCP server handles tool execution. This modular design eliminates the need to embed all logic within a single script.
+
+---
+
+### **b) Tool-Based Architecture**
+
+The system is built around reusable tools such as `create_presentation`, `add_slide`, and `save_presentation`. The agent invokes these tools dynamically instead of relying on hardcoded procedures for creating slides.
+
+---
+
+### **c) Dynamic Execution**
+
+The agent follows an agentic workflow where it plans and executes tasks step by step. It determines when to create slides, what content to include, and when to save the presentation. This replaces static, hardcoded workflows with flexible and adaptive behavior.
+
+---
+
+### **d) Reusability and Scalability**
+
+MCP tools are independent and reusable across different agents or applications. This reduces duplication of code and allows the system to scale efficiently without rewriting core functionality.
+
+---
+
+### **e) Improved Error Handling**
+
+The modular structure enables better handling of failures. If a tool fails, the agent can implement fallback strategies such as generating default content instead of terminating execution.
+
+---
+
+## **Conclusion**
+
+The initial version of the agent faced challenges related to content generation, image handling, MCP connectivity, and API integration. By adopting the MCP architecture, the system evolved into a modular and scalable solution. This approach eliminated hardcoded logic, improved flexibility, and enhanced the robustness of the Auto-PPT agent.
+
 
 ---
 
